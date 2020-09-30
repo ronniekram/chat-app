@@ -1,6 +1,16 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect,
+  useLocation
+} from "react-router-dom";
+import Login from './components/Login';
+import RoomList from './components/RoomList';
+import AddRoom from './components/AddRoom';
+import ChatRoom from './components/ChatRoom';
 
 function App() {
   return (
