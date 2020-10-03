@@ -13,23 +13,52 @@ import AddRoom from './components/AddRoom';
 import ChatRoom from './components/ChatRoom';
 
 function App() {
+  function SecureRoute({ children, ...rest }) {
+    return (
+      <Route
+        {...rest}
+        render={({ location }) =>
+          localStorage.getItem('nickname') ? (
+            children
+          ) : (
+            <Redirect
+              to={{
+                pathname: "/login",
+                state: { from: location }
+              }}
+            />
+          )
+        }
+      />
+    );
+  }
+  
+  let location = useLocation();
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div>
+        <Redirect
+          to={{
+            pathname: "/roomlist",
+            state: { from: location }
+          }}
+        />
+        <Switch>
+          <Route path="/login">
+            <Login />
+          </Route>
+          <SecureRoute path="/roomlist">
+            <RoomList />
+          </SecureRoute>
+          <SecureRoute path="/addroom">
+            <AddRoom />
+          </SecureRoute>
+          <SecureRoute path="/chatroom/:room">
+            <ChatRoom />
+          </SecureRoute>
+        </Switch>
+      </div>
+    </Router>
   );
 }
 
