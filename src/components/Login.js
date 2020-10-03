@@ -12,6 +12,10 @@ import {
 import firebase from '../Firebase';
 
 function Login() {
+  const history = useHistory();
+  const [creds, setCreds] = useState({ nickname: '' });
+  const [showLoading, setShowLoading] = useState(false);
+  const ref = firebase.database().ref('users/');
 
 }
 
