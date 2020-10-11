@@ -74,6 +74,11 @@ const enterChatRoom = (roomname) => {
   history.push('/chatroom/' + roomname);
 }
 
+const logout = () => {
+  localStorage.removeItem('nickname');
+  history.push('/login');
+}
+
 }
 
 export default RoomList;
