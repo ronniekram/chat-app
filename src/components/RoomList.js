@@ -13,3 +13,12 @@ import {
 import Moment from 'moment';
 import firebase from '../Firebase';
 
+function RoomList() {
+  const [room, setRoom] = useState([]);
+  const [showLoading, setShowLoading] = useState(true);
+  const [nickname, setNickname] = useState('');
+  const history = useHistory();
+
+}
+
+export default RoomList;
