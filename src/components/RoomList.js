@@ -19,6 +19,19 @@ function RoomList() {
   const [nickname, setNickname] = useState('');
   const history = useHistory();
 
+  useEffect(() => {
+    const fetchData = async () => {
+        setNickname(localStorage.getItem('nickname'));
+        firebase.database().ref('rooms/').on('value', resp => {
+            setRoom([]);
+            setRoom(snapshotToArray(resp));
+            setShowLoading(false);
+        });
+    };
+  
+    fetchData();
+}, []);
+
 }
 
 export default RoomList;
