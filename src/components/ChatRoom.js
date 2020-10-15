@@ -81,6 +81,10 @@ const submitMessage = (e) => {
   setNewchat({ roomname: '', nickname: '', message: '', date: '', type: '' });
 };
 
+const onChange = (e) => {
+  e.persist();
+  setNewchat({...newchat, [e.target.name]: e.target.value});
+}
 
 }
 
