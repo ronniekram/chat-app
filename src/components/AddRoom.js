@@ -13,3 +13,9 @@ import {
     Input
 } from 'reactstrap';
 import firebase from '../Firebase';
+
+function AddRoom() {
+
+}
+
+export default AddRoom;
