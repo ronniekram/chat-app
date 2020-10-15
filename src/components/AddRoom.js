@@ -41,6 +41,11 @@ function AddRoom() {
     });
 };
 
+const onChange = (e) => {
+  e.persist();
+  setRoom({...room, [e.target.name]: e.target.value});
+}
+
 }
 
 export default AddRoom;
