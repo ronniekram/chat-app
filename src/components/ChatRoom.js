@@ -22,7 +22,13 @@ import ScrollToBottom from 'react-scroll-to-bottom';
 import '../Styles.css';
 
 function ChatRoom(props) {
-
+  const [chats, setChats] = useState([]);
+  const [users, setUsers] = useState([]);
+  const [nickname, setNickname] = useState('');
+  const [roomname, setRoomname] = useState('');
+  const [newchat, setNewchat] = useState({ roomname: '', nickname: '', message: '', date: '', type: '' });
+  const history = useHistory();
+  const { room } = useParams();
 }
 
 export default ChatRoom;
