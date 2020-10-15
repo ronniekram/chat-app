@@ -69,6 +69,19 @@ const snapshotToArray = (snapshot) => {
   return returnArr;
 }
 
+const submitMessage = (e) => {
+  e.preventDefault();
+  const chat = newchat;
+  chat.roomname = roomname;
+  chat.nickname = nickname;
+  chat.date = Moment(new Date()).format('DD/MM/YYYY HH:mm:ss');
+  chat.type = 'message';
+  const newMessage = firebase.database().ref('chats/').push();
+  newMessage.set(chat);
+  setNewchat({ roomname: '', nickname: '', message: '', date: '', type: '' });
+};
+
+
 }
 
 export default ChatRoom;
