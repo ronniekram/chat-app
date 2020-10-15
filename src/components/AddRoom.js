@@ -46,6 +46,26 @@ const onChange = (e) => {
   setRoom({...room, [e.target.name]: e.target.value});
 }
 
+return (
+  <div>
+      {showLoading &&
+          <Spinner color="primary" />
+      }
+      <Jumbotron>
+          <h2>Please enter new Room</h2>
+          <Form onSubmit={save}>
+              <FormGroup>
+                  <Label>Room Name</Label>
+                  <Input type="text" name="roomname" id="roomname" placeholder="Enter Room Name" value={room.roomname} onChange={onChange} />
+              </FormGroup>
+              <Button variant="primary" type="submit">
+                  Add
+              </Button>
+          </Form>
+      </Jumbotron>
+  </div>
+);
+
 }
 
 export default AddRoom;
