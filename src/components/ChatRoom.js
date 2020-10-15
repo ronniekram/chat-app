@@ -20,3 +20,9 @@ import Moment from 'moment';
 import firebase from '../Firebase';
 import ScrollToBottom from 'react-scroll-to-bottom';
 import '../Styles.css';
+
+function ChatRoom(props) {
+
+}
+
+export default ChatRoom;
