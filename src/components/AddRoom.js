@@ -15,6 +15,10 @@ import {
 import firebase from '../Firebase';
 
 function AddRoom() {
+  const history = useHistory();
+  const [room, setRoom] = useState({ roomname: '' });
+  const [showLoading, setShowLoading] = useState(false);
+  const ref = firebase.database().ref('rooms/');
 
 }
 
